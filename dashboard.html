@@ -1,0 +1,65 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+    
+            <div class="my-3 mx-3">
+                <h1>Crime Analytics Dashboard</h1>
+                <div class="d-flex">
+                    <div class="col-4 card mx-3">
+                        <div class ="card-body">
+                            <h5 class="card-title text-primary">Crime Rate</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Monthly</h6>
+                            <div>
+                                <canvas id="crime-chart"></canvas>
+                            </div>
+                            <h1 class="card-text text-end">2,36,052</h1>
+                        </div>
+                    </div>
+                    <div class="col-4 card mx-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Accused Count</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Monthly</h6>
+                            <div>
+                                <canvas id="accused-chart"></canvas>
+                            </div>
+                            <h1 class="card-text text-end">1,24,502</h1>
+                        </div>
+                    </div>
+                    <div class="col-3 card mx-3 h-25">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Victim Count</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Yearly</h6>
+                            
+                            <h1 class="card-text text-end text-success">82,345</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class ="mx-3 my-5">
+                    
+                    <div class="bg-secondary bg-opacity-25 px-5 py-3 rounded">
+                        <h5 class="text-center">Trend Of crimeoccurence</h5>
+                        <canvas id="occurence-crime"></canvas>
+                    </div>
+                    
+                </div>
+                <div class="col-3 card mx-3 h-25">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Accused person </h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Random Forest Classifier</h6>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-text text-success">90%</h5>
+                            <h5 class="card-text text-success">{{ model_accuracy }}</h5>
+                        </div>
+                    </div>
+                </div>
+                        
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+
+<script src="{% static '/assets/js/index.js' %}"></script>
+{% endblock scripts%}
